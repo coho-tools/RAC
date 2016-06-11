@@ -20,13 +20,13 @@ function test_sink
 	bbox = [0.1,0.3;0.1,0.3];
 	initPhs{3}= ph_createByBox(dim,planes,bbox); % bbox 
 
-	% Step 2: Tell CRA the dynamic system. 
+	% Step 2: Tell RAC the dynamic system. 
 	%   Given a LP, the function should returns a LDI model. 
-	cra_cfg('set','modelFunc',@sink_model);
+	rac_cfg('set','modelFunc',@sink_model);
 	
-	% Step 3: Configurate CRA, this is optional. 
-	cra_cfg('set','projSolver','java');	
-	cra_cfg('set','lpSolver','java');
+	% Step 3: Configurate RAC, this is optional. 
+	rac_cfg('set','projSolver','java');	
+	rac_cfg('set','lpSolver','java');
 
 	% Step 4: Set advance options, this is optional. 
 	%  a. get the default options
@@ -88,7 +88,7 @@ function ldi = sink_model(lp)
 	% xdot = m*x
 	m = [-2,-3;3,-2];
 	A = m; b = zeros(2,1);
-	% NOTE: CRA doesn't allow error term "u" to be zero.
+	% NOTE: RAC doesn't allow error term "u" to be zero.
 	u = ones(2,1)*1e-6; %u = zeros(2,1);
 	ldi = int_create(A,b,u);
 
@@ -104,12 +104,12 @@ function test_3vdp
 	initPhs{3} = ph;
 
 	% set functions
-	cra_cfg('set','modelFunc',@vdp_model_min); 
-%	cra_cfg('set','modelFunc',@vdp_model_jac); % larger error term
+	rac_cfg('set','modelFunc',@vdp_model_min); 
+%	rac_cfg('set','modelFunc',@vdp_model_jac); % larger error term
 
 	% set solver
-	cra_cfg('set','lpSolver','java');	
-	cra_cfg('set','projSolver','java');	
+	rac_cfg('set','lpSolver','java');	
+	rac_cfg('set','projSolver','java');	
 
 	% set opt
 	opt = ph_getOpt; 

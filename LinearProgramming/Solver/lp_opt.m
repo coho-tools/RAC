@@ -23,11 +23,11 @@ function [vs,xs,status] = lp_opt(lp,f,solver)
 %  		3: infeasible or unbounded
 % 		4: numerical problems
 % NOTE: this function assume lp is CohoLP by default and use the default solver 
-% 	if not provided. use cra_cfg('set','lpSolver',solver) to change the default solver
+% 	if not provided. use rac_cfg('set','lpSolver',solver) to change the default solver
 % 	However, if the lp is a general LP, please specify the solver and do not use 'java'
 
 if(nargin<3||isempty(solver))
-	solver=cra_cfg('get','lpSolver');
+	solver=rac_cfg('get','lpSolver');
 end
 if(lp_isempty(lp))
 	error('empty lp');

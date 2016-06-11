@@ -22,7 +22,7 @@ p(:,all(abs(diffs)<=eps)) = [];
 
 % check the number of points
 if(size(p,2)<3)
-	if(~isempty(points) && cra_cfg('get','polyApproxEn'))
+	if(~isempty(points) && rac_cfg('get','polyApproxEn'))
 		%NOTE: recursive possible
 		p = poly_regu(points,eps*1e3); % use original points
 	else
@@ -33,7 +33,7 @@ end
 
 % check if the polygon is simple
 if(~poly_isSimple(p))
-	if(cra_cfg('get','polyApproxEn'))
+	if(rac_cfg('get','polyApproxEn'))
 		p = poly_convexHull(p);
 	else
 		p = zeros(2,0);

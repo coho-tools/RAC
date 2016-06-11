@@ -1,7 +1,7 @@
 This is the code used to generate result for CAV14 paper. 
 How to install Coho-Reach
-  git clone https://github.com/dreamable/cra.git 
-  cd cra
+  git clone https://github.com/dreamable/RAC.git 
+  cd RAC 
   sh install.sh
 
 How to run the code

@@ -13,7 +13,7 @@ if(nargin<1||ph_isempty(ph))
 	error('The input projectagon is empty');
 end
 if(nargin<2||isempty(opt))
-	opt = cra_cfg('get','phOpt'); 
+	opt = rac_cfg('get','phOpt'); 
 end
 ph_checkOpt(opt,ph);
 

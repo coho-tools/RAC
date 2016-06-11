@@ -1,11 +1,11 @@
 % This is the 3D Play-Doh example from "Reachability Analysis Using Polygonal Projections".
 function ex_3pd
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	ha = ex_3pd_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 % NOTE: This example must uses non-convex projectagon to show the V shape region
 % NOTE: The error term for x/y are zeros, so can not use face-none,

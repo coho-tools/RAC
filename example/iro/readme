@@ -58,5 +58,5 @@ IRO period with # of stage(Vsat/Vs=1/0.25):  ~3.x/2*N
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reachabilities
 run_iro_orbit: computes the oscillation orbit
-run_iro_perf:  used to measure the performance of CRA
+run_iro_perf:  used to measure the performance of RAC
 plot_iro_perf: plot the performance data

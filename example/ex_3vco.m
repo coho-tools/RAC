@@ -21,8 +21,8 @@
 
 % NOTE: change variable by IL1'=10*IL1 helps slightly
 function ex_3vco
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 
 	% with slicing
 	disp('Computing invariant set by using two states');
@@ -36,7 +36,7 @@ function ex_3vco
 	ha_ns = ha_reach(ha_ns);
 	ha_reachOp(ha_ns,@(reachData)(phs_display(reachData.sets)));
 
-	cra_close; 
+	rac_close; 
 
 % NOTE: reduce error by slicing
 function ha = ex_3vco_ha

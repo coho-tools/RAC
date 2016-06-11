@@ -1,10 +1,10 @@
-% This function uses N-stage IRO circuits to check the performance of CRA. 
+% This function uses N-stage IRO circuits to check the performance of RAC. 
 % We computes 50 steps from Init region [H,H,L,...,H,L]
 
 function run_iro_perf(mode)
 if(nargin<1||isempty(mode)), mode = 0; end
-addpath('~/cra');
-cra_open;
+addpath('~/RAC');
+rac_open;
 
 fwdOpt=ph_getOpt; 
 callBacks.exitCond = ha_callBacks('exitCond','maxFwdStep',50); 
@@ -41,4 +41,4 @@ switch(mode)
       save('results/perf/noncov/times','times');
     end
 end
-cra_close;
+rac_close;

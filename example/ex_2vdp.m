@@ -1,11 +1,11 @@
 % This is the 2D Vdp example from "Reachability Analysis Using Polygonal Projections".
 function ex_2vdp
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	ha = ex_2vdp_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 % This is similar with 3vdp. The timestep is larger, thus larger error. 
 % We limited the timeStep instead to get accurate result.

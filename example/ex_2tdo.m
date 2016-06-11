@@ -3,8 +3,8 @@
 % Use slicing to reduce error 
 % See ex_2tdo_cs for more accurate result by using changing variables 
 function ex_2tdo
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	disp('Working on oscillation mode');
 	ha = ex_2tdo_ha(1);
 	ha = ha_reach(ha);
@@ -13,7 +13,7 @@ function ex_2tdo
 	ha = ex_2tdo_ha(0);
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 % NOTE: In this example, the magitute of V and I have significant difference. 
 % So bloatAmt should be different for V and I. Otherwise, either the timeStep 

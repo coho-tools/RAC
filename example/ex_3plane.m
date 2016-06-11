@@ -2,12 +2,12 @@
 % Computational Techniques for the verification of hybrid systems
 % Here is a simple problem, only compute maximum forward reachable states.  
 function ex_3plane
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	ha = ex_3plane_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 function ha = ex_3plane_ha
 	% states

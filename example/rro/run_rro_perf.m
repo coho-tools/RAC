@@ -1,10 +1,10 @@
-% This function uses N-stage RRO circuits to check the performance of CRA. 
+% This function uses N-stage RRO circuits to check the performance of RAC. 
 % We computes 50 steps from Init region [H,L,H,L,...,H,L]
 
 function run_rro_perf(mode)
 if(nargin<1||isempty(mode)), mode = 0; end
-addpath('~/cra');
-cra_open;
+addpath('~/RAC');
+rac_open;
 
 disp('WARNING: This may several weeks to complete all the computations');
 
@@ -43,4 +43,4 @@ switch(mode)
     end 
 end
 
-cra_close;
+rac_close;

@@ -1,11 +1,11 @@
 % This is the 3D Dang and Maler's example from "Reachability Analysis Using Polygonal Projections".
 function ex_3dm
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	ha = ex_3dm_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 % The system converge quickly, so it's ok to use convex projectagon 
 % step is too large if use 'guess-verify'

@@ -1,14 +1,14 @@
-% This is a simiple demo to show how to use CRA
+% This is a simiple demo to show how to use RAC
 function ex_demo
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 
 
 	ha = ex_demo_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
 
-	cra_close; 
+	rac_close; 
 
 function ha = ex_demo_ha
 	% initial 

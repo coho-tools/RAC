@@ -43,7 +43,7 @@ A hybrid automata is consist of:
 
   Invariant: Global invariant for the reachable regions. 
   
-  For details, check ha_crate
+  For details, check ha_create
 
 
 The reachability computation is of the flow: 
@@ -53,7 +53,7 @@ The reachability computation is of the flow:
     Compute initial regions by transistion source and gates. 
     
     % Specify state dynamics 
-    cra_cfg('set','modelFunc',state.modelFunc); 
+    rac_cfg('set','modelFunc',state.modelFunc); 
 
     % Preform reachability computation
     state.beforeComp;                 % callback

@@ -1,11 +1,11 @@
 % This is the 2D sink  example
 function ex_2sink
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	ha = ex_2sink_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 function ha = ex_2sink_ha
 	% states

@@ -27,7 +27,7 @@ switch(ph.type)
 	case 0 % make poly feasible to hull	
 		% get parameters
 		if(nargin<3||isempty(opt))
-      phOpt = cra_cfg('get','phOpt');
+      phOpt = rac_cfg('get','phOpt');
 			opt = phOpt.canonOpt;
 		end
 		eps = opt.eps;  % area change

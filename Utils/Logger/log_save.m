@@ -18,7 +18,7 @@ for i=1:length(vars)
 	eval([vars{i},'= val;']);
 end
 % save mat file
-threadPath = cra_cfg('get','threadPath'); 
+threadPath = rac_cfg('get','threadPath'); 
 file = sprintf('%s/%s',threadPath,name);
 
 save(file,vars{:});

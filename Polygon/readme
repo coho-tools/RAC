@@ -23,7 +23,7 @@ It provides the following functions:
 	poly_display     : display a polygon
 	polys_display    : display a set of polygons
 
-// Functions specified for CRA	
+// Functions specified for RAC	
 	poly_interval    : interval closure calculation
 	poly_breakLongEdge: break a long edge into smaller pieces
 

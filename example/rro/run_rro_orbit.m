@@ -1,6 +1,6 @@
 % This script is to compute the oscillation orbit of N-stage RRO circuits. 
-addpath('~/cra');
-cra_open;
+addpath('~/RAC');
+rac_open;
 
 disp('WARNING: This may several days to complete all the computations');
 % obj=ph doesn't work
@@ -13,4 +13,4 @@ for s=2:2:6
   ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
 end
 
-cra_close;
+rac_close;

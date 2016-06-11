@@ -9,7 +9,7 @@ function test_opt
 	disp('Test LP solver');
 	bbox = [0,1;0,1];
 	lp = lp_createByBox(bbox);
-	if(cra_info('has_cplex'))
+	if(rac_info('has_cplex'))
 	  disp('cplex solver');
 	  [v,x,flag] = lp_opt(lp,[1,0,-1,0;0,1,0,-1],'cplex');
 	  disp('cplexjava solver');

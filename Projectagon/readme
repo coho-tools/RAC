@@ -1,4 +1,4 @@
-This package is the core of CRA. It has two parts:
+This package is the core of RAC. It has two parts:
   Ph: Projectagon structures and its operations
   Forwad: Compute forward reachable regions given LDI models (see Integer pkg).  
 ## Ph packages

@@ -1,8 +1,8 @@
 % This script is used compute the oscillation orbit of N-stage IRO circuits 
 % Currently, it computes for 3-9 stages.
 
-addpath('~/cra');
-cra_open;
+addpath('~/RAC');
+rac_open;
 fwdOpt=ph_getOpt;
 
 callBacks.exitCond = ha_callBacks('exitCond','maxFwdStep',150); 
@@ -25,4 +25,4 @@ ha = iro_ha('N',9,'fwdOpt',fwdOpt,'type','convex','callBacks',callBacks,'rpath',
 ha = ha_reach(ha);
 %ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
 
-cra_close;
+rac_close;

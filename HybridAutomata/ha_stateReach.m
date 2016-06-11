@@ -36,9 +36,9 @@ if(isempty(fwdOpt)), fwdOpt = ph_getOpt; end % set default fwdOpt
 
 % Prepare global info
 % get tol 
-tol = cra_cfg('get','tol');
+tol = rac_cfg('get','tol');
 % set modelFunc
-cra_cfg('set','modelFunc',modelFunc); 
+rac_cfg('set','modelFunc',modelFunc); 
 
 % Prepare for slicing
 % set state constraints
@@ -124,7 +124,7 @@ while(~complete)
 
 	% save temporal file per hour 
 	if((cputime-saveT)>=3600) 
-	  path = cra_cfg('get','threadPath');
+	  path = rac_cfg('get','threadPath');
 		log_write(sprintf('Writing projectagons on to %s',path));
 		saveT = cputime;
 	end

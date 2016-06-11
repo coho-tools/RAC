@@ -40,7 +40,7 @@ end
 
 % get the method
 if(nargin<2||isempty(method))
-	method= cra_cfg('get','polySolver'); 
+	method= rac_cfg('get','polySolver'); 
 end
 
 % compute the union
@@ -53,7 +53,7 @@ case {'saga','matlab'}
 		pts = [x';y'];
 		if(size(pts,2)<3|| any(isnan(pts(:))) ||  ...
 		   poly_area(pts)+eps < max(poly_area(p1),poly_area(p2)) ) 
-			if(cra_cfg('get','polyApproxEn')) 
+			if(rac_cfg('get','polyApproxEn')) 
 				pts = poly_convexHull([p1,p2]);
 			else
 				msg='incorrect poly_union result by SAGA method';
@@ -71,7 +71,7 @@ case {'java'}
 		as(i) = poly_area(ps{i});
 	end
 	if(size(pts,2)<3||poly_area(pts)+eps<max(as)) 
-		if(cra_cfg('get','polyApproxEn'))
+		if(rac_cfg('get','polyApproxEn'))
 			ps = reshape(ps,1,[]);
 			pts = cell2mat(ps);
 			pts = poly_convexHull(pts);

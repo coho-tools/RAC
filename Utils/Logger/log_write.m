@@ -4,7 +4,7 @@ if(nargin<2||isempty(addinfo))
 	addinfo = false;
 end
 
-wfids = cra_cfg('get','logWFIds'); 
+wfids = rac_cfg('get','logWFIds'); 
 if(addinfo)
 	info = utils_fileInfo(2); % parent
 	name = info.name; line = info.line;

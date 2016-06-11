@@ -13,7 +13,7 @@ assert(ph.iscanon);
 switch(ph.type)
 	case 0 % non-convex 
 		if(nargin<3||isempty(opt)) 
-			phOpt = cra_cfg('get','phOpt');
+			phOpt = rac_cfg('get','phOpt');
 			opt = phOpt.intervalOpt;
 		end
 		eps = opt.eps; niters = opt.iters;

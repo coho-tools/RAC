@@ -114,14 +114,14 @@ function test_canon
 		ph = ph_rand(dim,planes,0);
 		% use the java method
 		opt = struct('iters',10,'eps',1e-3,'tol',0.01); 
-		cra_cfg('set','polySolver','java'); 
+		rac_cfg('set','polySolver','java'); 
 		t = cputime;
 		[cph,iter] = ph_canon(ph,[],opt); % iter 1.85 on average
 		t1 = t1+(cputime-t);
 		c1 = c1+iter;
 		% use the SAGA method
 		% this often generates non-simple polygons
-		cra_cfg('set','polySolver','saga'); 
+		rac_cfg('set','polySolver','saga'); 
 		t = cputime;
 		[cph,iter] = ph_canon(ph,[],opt);
 		t2 = t2+(cputime-t);

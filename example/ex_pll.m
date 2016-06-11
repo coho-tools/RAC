@@ -1,7 +1,7 @@
 % This is the PLL example from Jijie. 
 function ex_pll 
-  addpath('~/cra');
-  cra_open;
+  addpath('~/RAC');
+  rac_open;
 
 	disp('Working on full model');
   ha = ex_pll_ha;
@@ -21,7 +21,7 @@ function ex_pll
 
   ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
 
-  cra_close;
+  rac_close;
 
 function ha = ex_pll_ha
   % Partition by sign(phase) 

@@ -1,11 +1,11 @@
 % This is the 3D Vdp example
 function ex_3vdp
-  addpath('~/cra');
-	cra_open;
+  addpath('~/RAC');
+	rac_open;
 	ha = ex_3vdp_ha;
 	ha = ha_reach(ha);
 	ha_reachOp(ha,@(reachData)(phs_display(reachData.sets)));
-	cra_close;
+	rac_close;
 
 function ha = ex_3vdp_ha
 	% states

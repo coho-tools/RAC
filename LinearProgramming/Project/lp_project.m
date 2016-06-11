@@ -29,7 +29,7 @@ if(nargin<4||isempty(opt))
 	opt = [];
 end
 if(nargin<5||isempty(method))
-	method = cra_cfg('get','projSolver');
+	method = rac_cfg('get','projSolver');
 end
 if(tol<=eps)
 	method = 'java'; % only java routine can compute exact solution

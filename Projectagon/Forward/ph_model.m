@@ -7,7 +7,7 @@ ph = ph_face(ph,bloatAmt);
 opt = ph.fwd.opt;
 object = opt.object; 
 
-modelFunc = cra_cfg('get','modelFunc');
+modelFunc = rac_cfg('get','modelFunc');
 globalLP = lp_and(ph.fwd.bloatLP,opt.constraintLP);
 
 if(strcmpi(object,'ph')) 

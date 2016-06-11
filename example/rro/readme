@@ -34,5 +34,5 @@ run_rro_simu.m
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reachabilities
 run_rro_orbit: computes the oscillation orbit
-run_rro_perf:  used to measure the performance of CRA
+run_rro_perf:  used to measure the performance of RAC
 plot_rro_perf: plot the performance data

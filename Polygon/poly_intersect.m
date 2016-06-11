@@ -32,7 +32,7 @@ end
 
 % get the method
 if(nargin<2||isempty(method))
-	method = cra_cfg('get','polySolver');
+	method = rac_cfg('get','polySolver');
 end
 
 % compute the intersection
@@ -83,7 +83,7 @@ function pts = poly_intersect_saga(p1,p2)
 		case 1 % a polygon
 			pts = [x(ss(pind):ee(pind)),y(ss(pind):ee(pind))]';
 		otherwise % disjoint polygons
-			if(cra_cfg('get','polyApproxEn')) 
+			if(rac_cfg('get','polyApproxEn')) 
 				pts = zeros(2,0);
 				for i=1:length(pind)
 					poly = [x(ss(pind(i)):ee(pind(i))),y(ss(pind(i)):ee(pind(i)))]';
