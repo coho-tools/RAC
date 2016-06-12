@@ -2,6 +2,7 @@ var
 *.log
 *.mat
 *.eps
+*.png
 JANS
 rac_info.m
 
