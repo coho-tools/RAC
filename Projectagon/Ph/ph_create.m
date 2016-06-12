@@ -55,8 +55,19 @@ for i=1:ns
 end
 
 % compute lp and bbox (for convex, hyper-rectangle) 
-bbox = lp_box(hullLP);
-if(isempty(bbox))
+% NOTE: finding the bounding box by LP is expensive. 
+%   Find an over-approximated bbox by geometry finding. Fix it if the over-approximation causing any problem. 
+bbox = repmat([Inf,-Inf],dim,1);
+for i=1:ns
+  hull = hulls{i}; 
+  lo = min(hull,[],2); hi = max(hull,[],2);
+  lo = min(lo,bbox(planes(i,:),1));
+  hi = max(hi,bbox(planes(i,:),2));
+  bbox(planes(i,:),1) = lo; 
+  bbox(planes(i,:),2) = hi; 
+end
+%bbox = lp_box(hullLP);
+if(isempty(bbox) || any(bbox(:,1)>=bbox(:,2)))
 	ph = []; return;
 else
 	bboxLP = lp_createByBox(bbox);

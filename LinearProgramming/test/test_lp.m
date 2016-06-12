@@ -77,7 +77,6 @@ function test_other
 	lp = lp_create(A,b); 
 	lp_get(lp,'A');
 	lp_get(lp,'b');
-	lp_get(lp,'isnorm');
 	lp_get(lp,'dim');
 	lp_get(lp,'ineqs');
 	lp_get(lp,'eqs');

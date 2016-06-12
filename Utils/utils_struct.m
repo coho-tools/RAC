@@ -36,11 +36,11 @@ function [val,status,update] = utils_struct(S,op,varargin)
 		case {'fieldnames','fileds','names'} % list of fileds
 			val = fieldnames(S);
 		case 'get' % get value of a field
-			valids = coho_checkField(S,varargin);
-			if(~all(valids))
-				warning('non-exist fields found');
-				status = 1; return;	
-			end
+			% valids = coho_checkField(S,varargin); % disable for performance reason
+			%if(~all(valids))
+			%	warning('non-exist fields found');
+			%	status = 1; return;	
+			%end
 			nvar = length(varargin);
 			switch(nvar)
 				case 0 % return the struct
@@ -84,16 +84,16 @@ function [val,status,update] = utils_struct(S,op,varargin)
 				error('number of parameters incorrect'); 
 			end
 			update = true;
-			valids = coho_checkField(S,varargin(1:2:end));
-			if(strcmpi(op,'set')&&~all(valids)) 
-			  % NOTE: it's OK to add & set.
-				%warning('non-exist fields found'); 
-				%status = 1; return;	
-			end
-			if(strcmpi(op,'add')&&any(valids))
-				warning('exist fields found');
-				status = 1; return;	
-			end
+%			valids = coho_checkField(S,varargin(1:2:end));
+%			if(strcmpi(op,'set')&&~all(valids)) 
+%			  % NOTE: it's OK to add & set.
+%				%warning('non-exist fields found'); 
+%				%status = 1; return;	
+%			end
+%			if(strcmpi(op,'add')&&any(valids))
+%				warning('exist fields found');
+%				status = 1; return;	
+%			end
 			nvar = length(varargin)/2;
 			for i=1:nvar
 				field = varargin{2*i-1};
@@ -103,11 +103,11 @@ function [val,status,update] = utils_struct(S,op,varargin)
 			val = S; % return the new struct
 		case {'remove','rm','delete'}
 			update = true;
-			valids = coho_checkField(S,varargin);
-			if(~all(valids))
-				warning('non-exist field found');
-				status = 1; return;	
-			end	
+%			valids = coho_checkField(S,varargin);
+%			if(~all(valids))
+%				warning('non-exist field found');
+%				status = 1; return;	
+%			end	
 			for i=1:length(varargin)
 				S = rmfield(S,varargin{i});
 			end

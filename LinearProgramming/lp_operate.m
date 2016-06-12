@@ -35,4 +35,3 @@ switch lower(operation)
   otherwise
     error([ operation ' is not an understood operation' ]);
 end
-lp.isnorm = false;

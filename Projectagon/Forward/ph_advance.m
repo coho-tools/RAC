@@ -107,7 +107,9 @@ for i=1:opt.riters
 end
 
 fwdPh = ph_construct(ph);
-tube  = ph_canon(ph_succ(ph,fwdPh),opt.constraintLP,opt.canonOpt);
+if(nargout>3)
+  tube  = ph_canon(ph_succ(ph,fwdPh),opt.constraintLP,opt.canonOpt);
+end
 fwdPh = ph_canon(fwdPh,opt.constraintLP,opt.canonOpt);
 
 % update opt 

@@ -5,9 +5,6 @@ function lp = lp_norm(lp)
 %	If a row of lp.A is all zeros,  error is reported.
 
 if(lp_isempty(lp)),return; end
-if(isfield(lp,'isnorm') && lp.isnorm)
-	return;
-end
 
 % Don't know how to handle it of bwd is not empty
 assert(isempty(lp.bwd));

@@ -10,8 +10,9 @@ function ph = ph_createByLP(dim,planes,lp)
 % 	ph:  a projectagon with convex type, use ph_convert() to convert to other types.
 
 % empty lp OR infeasible OR a single point 
-%if(isempty(lp)||~lp_feasible(lp)) % infeasible
-if(isempty(lp) || ~lp_feasible(lp) || all(diff(lp_box(lp),[],2)==0))
+% NOTE: lp_box and lp_feasible is expensive, use lp_project to check the error
+%if(isempty(lp) || ~lp_feasible(lp) || all(diff(lp_box(lp),[],2)==0))
+if(isempty(lp)) 
 	ph = []; return; 
 end
 
