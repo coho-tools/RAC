@@ -1,12 +1,32 @@
-%ex_2sink
-%ex_2tdo_cv
-%ex_2tdo
-%ex_2vdp
-%ex_3dm
-%ex_3pd
-%ex_3plane
+close all
+ex_2sink
+
+close all
+ex_2tdo_cv
+
+close all
+ex_2tdo
+
+close all
+ex_2vdp
+
+close all
+ex_3dm
+
+close all
+ex_3pd
+
+close all
+ex_3plane
+
+close all
 ex_3vco
+
+close all
 ex_3vdp
-ex_all
+
+close all
 ex_demo
+
+close all
 ex_pll
