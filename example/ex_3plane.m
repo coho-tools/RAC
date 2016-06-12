@@ -61,4 +61,4 @@ function ldi = ex_3plane_model(lp)
 	u(x) = v*(maxCosZ-minCosZ)/2; 
 	u(y) = v*(maxSinZ-minSinZ)/2;
 	u(z) = 0; % 1e-9; % d,u is determined, so zero.
-	ldi = int_create(A,b,u); 
+	ldi = int_create(A,b,u(:)); 
