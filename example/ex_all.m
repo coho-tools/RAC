@@ -1,4 +1,7 @@
 close all
+ex_demo
+
+close all
 ex_2sink
 
 close all
@@ -25,8 +28,6 @@ ex_3vco
 close all
 ex_3vdp
 
-close all
-ex_demo
 
-close all
-ex_pll
+%close all
+%ex_pll
