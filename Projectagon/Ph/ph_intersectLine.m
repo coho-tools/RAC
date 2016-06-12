@@ -9,6 +9,7 @@ if(nargin<3||isempty(eps))
 end
 
 Aeq = line.Aeq; beq = line.beq;
-lp = lp_create([],[],Aeq,beq);
+A = [Aeq;-Aeq]; b = [beq; -beq];
+lp = lp_create(A,b);
 lp = lp_bloat(lp,eps/2);
 ph = ph_intersectLP(ph,lp);

@@ -17,6 +17,9 @@
 %       default:  @model_create
 %     dataPath: path to save computation data
 %       default: /var/tmp/<user>/coho/rac/data/
+%     threadPath: unique path for this thread for storing related info
+%       NOTE: this is read-only for user
+%       default: rac_info('sys_path')
 %     phOpt: opt for projectagon package. See ph_getOpt for detail.
 %       default: ph_getOpt
 %     lpSolver:  lp solver 
@@ -31,9 +34,6 @@
 %     polyApproxEn: enable over approximation in polygon package
 %       values:  1/0
 %       default: 1
-%     javaFormat: Format of numbers passed between Java and Matlab threads
-%       values:  'hex', 'dec'
-%       default: 'hex'
 %     tol: tolerence (not used now)
 %       default: 1e-6
 
@@ -42,7 +42,6 @@ function [val,status] = rac_cfg(op,varargin)
 	% NOTE: Because of the Matlab 2013 version bug, I have to use global vars. 
   %       Please don't modify the value by other functions. 
 	%       Persistent vars will be re-inited the first time when path changed.
-  %persistent RAC_CFG;
   global RAC_CFG;
   if(isempty(RAC_CFG))
 		RAC_CFG= rac_cfg_default;
@@ -77,17 +76,15 @@ function cfg = rac_cfg_default
 	modelFunc = @model_create;
 
   dataPath = ['/var/tmp/',rac_info('user'),'/coho/rac/data']; % the place to save output
-	threadPath = rac_info('sys_path'); % thread unique path
+  threadPath = rac_info('sys_path'); % thread unique path
 
 	% tolerence. 
 	tol = 1e-6;
-	javaFormat = 'hex';
 
   cfg = struct('lpSolver', lpSolver, 'projSolver', projSolver, ...
 	             'polySolver', polySolver, 'polyApproxEn', polyApproxEn, ...
 		           'phOpt', phOpt, 'modelFunc', modelFunc, ...
-	 						 'dataPath', dataPath, 'threadPath', threadPath, ...
-	             'tol', tol, 'javaFormat', javaFormat); 
+	 						 'dataPath', dataPath, 'threadPath',threadPath, 'tol', tol); 
 end % rac_cfg_default;
 
 

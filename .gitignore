@@ -1,0 +1,7 @@
+var
+*.log
+*.mat
+*.eps
+JANS
+rac_info.m
+

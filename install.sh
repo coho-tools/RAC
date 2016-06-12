@@ -9,29 +9,12 @@ export RAC_HOME
 echo $RAC_HOME
 echo "" 
 
-echo "====Step1: Compile JAVA codes====" 
-cd $RAC_HOME/Java
-sh build_java.sh
-echo "" 
+echo "====Step1: Install JANS ===" 
+git clone https://github.com/dreamable/JANS.git
+cd JANS
+sh install.sh
 
-echo "====Step2: Check the Java thread works correctly====" 
-cd $RAC_HOME/Java/test 
-sh test_java.sh
-echo "" 
-
-echo "====Step3: Comple C codes====" 
-cd $RAC_HOME/JavaInterface/Fork
-echo "Compile C files ..."
-make
-echo "" 
-
-echo "====Step4: Check the pipe between Java and Matlab thread works correctly====" 
-cd $RAC_HOME/JavaInterface/Fork/
-sh test_javaif.sh
-echo "" 
-
-
-echo "====Step5: Generating RAC configuration file ====" 
+echo "====Step2: Generating RAC configuration file ====" 
 cd $RAC_HOME
 while true; do 
 	echo "The commerical LP solver CPLEX may speedup the RAC computation."
@@ -53,7 +36,6 @@ echo "
 %     rac_dirs:  all RAC dirs to be added in Matlab
 %     user:      current user
 %     has_cplex: CPLEX LP solver is available or not in the system 
-%     java_classpath, fork_bin: use for create pipe between Matlab & Java
 %     version:   RAC version
 %     license:   RAC license
 %  Ex: 
@@ -85,15 +67,13 @@ function  info = rac_info_init
     'Projectagon',
     'Projectagon/Ph',
     'Projectagon/Forward',
-    'JavaInterface',
-    'JavaInterface/Fork',
-    'JavaInterface/Base',
     'LinearProgramming',
     'LinearProgramming/Project',
     'LinearProgramming/Solver',
     'Polygon',
     'Polygon/SAGA',
     'Integrator',
+    'JANS',
     'Utils',
     'Utils/Logger'};
 
@@ -107,18 +87,13 @@ function  info = rac_info_init
 	% path to save RAC system data or files
   sys_path = ['/var/tmp/',user,'/coho/rac/sys']; 
 
-  % JAVA java_classpath
-  java_classpath = [rac_home,'/Java/lib/cup.jar',':',rac_home,'/Java/bin/coho.jar'];
-  fork_bin = [rac_home,'/JavaInterface/Fork/fork'];
-
   version = 1.1;
   license = 'bsd';
   
   info = struct('version',version, 'license',license, ...
                 'rac_dirs',{rac_dirs}, 'rac_home',rac_home, ...
                 'user',user, 'has_cplex', has_cplex, ...
-                'sys_path', sys_path, 'fork_bin', fork_bin, ...
-                'java_classpath', java_classpath); 
+                'sys_path', sys_path); 
 end % rac_info
 " > rac_info.m
 

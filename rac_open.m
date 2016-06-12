@@ -13,21 +13,21 @@ function rac_open(debug)
 	else
 		warning off all;
 	end
-	
 
 	% Add path
 	rac_addpath;
 
-	% Create a unique sys dir
-	disp('Create system directory for RAC'); 
-	utils_system('mkdir',rac_info('sys_path')); 
+
+  % Create a unique sys dir
+  disp('Create system directory for RAC'); 
+  utils_system('mkdir',rac_info('sys_path')); 
   cmd = sprintf('mktemp -d %s/%s_XXX',rac_info('sys_path'),datestr(now,'yy-mm-dd')); 
   [threadPath,status] = utils_system('cmd',cmd);
   if(status)
-	  error(['Can not create a unique  directory for RAC']); 
+    error(['Can not create a unique  directory for RAC']); 
   end
-	rac_cfg('set','threadPath',threadPath);
-  disp(sprintf('  A unique dir %s has been create for this RAC thread.',threadPath));	
+  rac_cfg('set','threadPath',threadPath);
+  fprintf('  A unique dir %s has been create for this RAC thread.',threadPath); 
 
 	% Open Logger
 	disp('Open an logger to record message'); 
@@ -37,9 +37,10 @@ function rac_open(debug)
 	  log_open; 
 	end
 
-	% Open Java
-	disp('Link Matlab and Java threads');
-	java_open(debug);
+  % Open JANS
+	disp('Open JANS'); 
+  jans_open(debug)
+
 
 	disp('RAC initialization complete!');
 end %function rac_open

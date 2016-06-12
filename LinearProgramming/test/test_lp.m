@@ -74,13 +74,9 @@ function test_op
 function test_other
 	disp('Test lp_get functions');
 	A = rand(4,2); b = rand(4,1);
-	Aeq = rand(2,2); beq = rand(2,1);
-	lp = lp_create(A,b,Aeq,beq);
-	lp = lp_convert(lp);
+	lp = lp_create(A,b); 
 	lp_get(lp,'A');
 	lp_get(lp,'b');
-	lp_get(lp,'Aeq');
-	lp_get(lp,'beq');
 	lp_get(lp,'isnorm');
 	lp_get(lp,'dim');
 	lp_get(lp,'ineqs');

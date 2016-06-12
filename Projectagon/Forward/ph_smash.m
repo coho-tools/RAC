@@ -41,8 +41,8 @@ for i=1:ns
 		edgeLP = lp_createByHull(edge,dims); % isnorm = true;
 		%% NOTE: bloat the edgeLP a little to avoid empty intersection of adjacent faceLP caused by computation error
 		%edgeLP = lp_bloat(edgeLP,10*eps); 
-		lineLP= lp_create(edgeLP.A(1,:),edgeLP.b(1),[],[],true);
-		innerLP = lp_create(edgeLP.A(3,:),edgeLP.b(3),[],[],true);
+		lineLP= lp_create(edgeLP.A(1,:),edgeLP.b(1),true);
+		innerLP = lp_create(edgeLP.A(3,:),edgeLP.b(3),true);
 		boundLP= lp_create(edgeLP.A([1,2,4],:),edgeLP.b([1,2,4]),[],[],true);
 		bbox = [min(edge,[],2),max(edge,[],2)];
 		bboxLP = lp_createByBox(bbox,ph.dim,plane);
