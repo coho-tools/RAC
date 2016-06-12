@@ -10,6 +10,7 @@ echo $RAC_HOME
 echo "" 
 
 echo "====Step1: Install JANS ===" 
+rm -rf JANS
 git clone https://github.com/dreamable/JANS.git
 cd JANS
 sh install.sh

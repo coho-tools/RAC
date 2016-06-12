@@ -47,7 +47,7 @@ function [val,status] = rac_cfg(op,varargin)
 		RAC_CFG= rac_cfg_default;
 		disp('init rac_cfg');
 	end
-  [val,status,update] = utils_struct(RAC_CFG,op,varargin{:});
+  [val,status,update] = coho_struct(RAC_CFG,op,varargin{:});
   if(status==0&&update)
 		rac_cfg_check(val);
 		RAC_CFG = val; % save the update

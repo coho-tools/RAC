@@ -3,7 +3,7 @@
 function ha = rro_ha(varargin)
   opt = struct('N',2,'r',1,'fwdOpt',ph_getOpt,'callBacks',[], ...
                'type','convex', 'haName',[],'rpath','.'); 
-  opt = utils_struct(opt,'set',varargin{:});
+  opt = coho_struct(opt,'set',varargin{:});
   N = opt.N; r = opt.r; fwdOpt = opt.fwdOpt; callBacks = opt.callBacks; 
   type = opt.type; haName = opt.haName; rpath = opt.rpath;
   if(isempty(callBacks))
